@@ -60,7 +60,7 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 255); /* semi-transparent white */
+  background: rgba(255, 255, 255, 1); /* semi-transparent white */
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -618,3 +618,4 @@ h2 {
         font-size: 1rem;
     }
 }
+
