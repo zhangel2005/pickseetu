@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seetu App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="history-icon" id="historyIcon">⏰</div>
+
+    <div id="homepage" class="page active">
+        <div class="container">
+            <h1>Seetu</h1>
+            <p class="subtitle">Create now!</p>
+            <button class="btn-primary" id="createNewBtn">Create a New Seetu</button>
+        </div>
+    </div>
+
+    <div id="createPage" class="page">
+        <div class="container">
+            <h2>Create New Seetu</h2>
+            <div class="form-group">
+                <label>Number of people:</label>
+                <select id="numPeople"></select>
+            </div>
+            <button class="btn-primary" id="createSeetuBtn">Create Seetu</button>
+            <button class="btn-secondary" id="backBtn">Back</button>
+        </div>
+    </div>
+
+    <div id="linkPage" class="page">
+        <div class="container">
+            <h2>Seetu Created!</h2>
+            <div class="link-container">
+                <input type="text" id="seetuLink" readonly>
+                <button class="copy-btn" id="copyBtn">📋</button>
+            </div>
+            <button class="btn-secondary" id="viewCardsBtn">View Cards</button>
+            <button class="btn-primary" id="createAnotherBtn">Create Another</button>
+        </div>
+    </div>
+
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Seetu</h2>
+            <input type="text" id="nameInput" placeholder="Your name" maxlength="30">
+            <button class="btn-primary" id="enterSeetuBtn">Enter</button>
+        </div>
+    </div>
+
+    <div id="cardsPage" class="page">
+        <div class="container">
+            <h2>Pick Your Card</h2>
+            <div id="cardsContainer" class="cards-grid"></div>
+        </div>
+    </div>
+
+    <div id="flipOverlay" class="flip-overlay">
+        <div class="flip-card-large" id="flipCardLarge">
+            <div class="flip-card-inner">
+                <div class="flip-card-back"></div>
+                <div class="flip-card-front">
+                    <div class="card-number"></div>
+                    <div class="card-name"></div>
+                </div>
+            </div>
+        </div>
+        <button class="btn-primary done-btn" id="doneBtn">Done</button>
+    </div>
+
+    <div id="historyModal" class="modal">
+        <div class="modal-content history-content">
+            <div class="modal-header">
+                <h2>History</h2>
+                <button class="close-btn" id="closeHistoryBtn">&times;</button>
+            </div>
+            <div id="historyList"></div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
