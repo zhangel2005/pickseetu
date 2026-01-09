@@ -115,11 +115,33 @@ function loadHostState() {
 
 function copyLink() {
     const input = document.getElementById('seetuLink');
+    
+    // Modern approach using Clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(input.value).then(() => {
+            const btn = document.getElementById('copyBtn');
+            btn.textContent = '✓';
+            setTimeout(() => btn.textContent = '📋', 1000);
+        }).catch(err => {
+            console.error('Failed to copy:', err);
+            fallbackCopy(input);
+        });
+    } else {
+        fallbackCopy(input);
+    }
+}
+
+function fallbackCopy(input) {
     input.select();
-    document.execCommand('copy');
+    input.setSelectionRange(0, 99999); // For mobile devices
     const btn = document.getElementById('copyBtn');
-    btn.textContent = '✓';
-    setTimeout(() => btn.textContent = '📋', 1000);
+    try {
+        document.execCommand('copy');
+        btn.textContent = '✓';
+        setTimeout(() => btn.textContent = '📋', 1000);
+    } catch (err) {
+        alert('Please copy the link manually');
+    }
 }
 
 async function checkUrlForSeetu() {
